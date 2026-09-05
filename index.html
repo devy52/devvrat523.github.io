@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devvrat Yadav — AI/ML Engineer</title>
+<meta name="description" content="Devvrat Yadav — AI/ML Engineer building RAG pipelines, agentic systems, and computer vision applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="#top" class="mark" aria-label="Devvrat Yadav, home">
+    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+      <path d="M10 2 L10 12 M10 12 L4 18 M10 12 L16 18 M10 8 L5 5 M10 8 L15 5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+  <nav class="site-nav" aria-label="Section navigation">
+    <a href="#about">taproot</a>
+    <a href="#projects">branches</a>
+    <a href="#skills">signal</a>
+    <a href="#certifications">rings</a>
+    <a href="#contact">reach</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero">
+    <svg class="root-graphic" viewBox="0 0 900 620" aria-hidden="true" preserveAspectRatio="xMidYMax slice">
+      <path class="root-path" d="M450 620 C 450 520, 440 470, 450 400" />
+      <path class="root-path" d="M450 400 C 430 350, 380 330, 330 300" />
+      <path class="root-path" d="M450 400 C 470 350, 520 330, 570 300" />
+      <path class="root-path" d="M330 300 C 300 270, 260 260, 210 250" />
+      <path class="root-path" d="M330 300 C 320 260, 330 220, 300 180" />
+      <path class="root-path" d="M570 300 C 600 270, 640 260, 690 250" />
+      <path class="root-path" d="M570 300 C 580 260, 570 220, 600 180" />
+      <path class="root-path" d="M450 400 C 450 360, 450 330, 450 300" />
+      <path class="root-path" d="M450 300 C 450 250, 450 210, 450 160" />
+      <circle class="root-node" cx="330" cy="300" r="3.5" />
+      <circle class="root-node" cx="570" cy="300" r="3.5" />
+      <circle class="root-node" cx="210" cy="250" r="3" />
+      <circle class="root-node" cx="690" cy="250" r="3" />
+      <circle class="root-node" cx="300" cy="180" r="3" />
+      <circle class="root-node" cx="600" cy="180" r="3" />
+      <circle class="root-node" cx="450" cy="160" r="3.5" />
+    </svg>
+
+    <p class="eyebrow"><span class="dot"></span>ai / ml engineer</p>
+    <h1>Devvrat<br>Yadav</h1>
+    <p class="role">RAG pipelines &amp; agentic systems · computer vision · deterministic, auditable AI</p>
+    <blockquote class="hook">
+      When something has my real interest, I don't stop until it's right.
+    </blockquote>
+    <div class="hero-links">
+      <a href="#projects" class="btn btn-primary">View projects</a>
+      <a href="mailto:devy522003@gmail.com" class="btn">Email</a>
+      <a href="https://github.com/devy52" class="btn" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/devvrat523" class="btn" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="dot"></span>taproot</p>
+      <h2>About</h2>
+    </div>
+    <div class="section-body prose reveal">
+      <p>I'm an AI/ML engineer (B.Tech, CSE — Artificial Intelligence &amp; Machine Learning) who learns by building. I take a concept — retrieval-augmented generation, agentic workflows, computer vision — and turn it into a working, end-to-end system rather than leaving it as theory.</p>
+      <p>Most of what I build is deliberately deterministic and auditable: fraud-detection logic that can't be overridden by model judgment, evaluation pipelines that catch hallucinations before they ship, vision systems that are tested against their actual failure modes instead of just their happy path.</p>
+      <p>Outside of applied projects, I'm doing independent research into a RAG approach I call <em>Root System</em> — chunk-level spreading activation as an alternative to flat similarity retrieval. Still validating whether there's a real technical delta over prior art like HippoRAG.</p>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="dot"></span>branches</p>
+      <h2>Projects</h2>
+    </div>
+
+    <div class="branch-list reveal">
+
+      <article class="branch">
+        <button class="branch-toggle" aria-expanded="false">
+          <span class="branch-title">MC-TFT — Multi-Camera Target Face Tracking System</span>
+          <span class="branch-sub">B.Tech Major Project</span>
+        </button>
+        <div class="branch-body">
+          <ul>
+            <li>Real-time pipeline to detect, recognize, and track a target person across 4 simultaneous, non-overlapping CCTV streams using face embeddings and cosine similarity matching.</li>
+            <li>Compared three face-detection models — MTCNN, RetinaFace, YOLOv8-Face — on accuracy, latency, and robustness, and selected RetinaFace based on structured evaluation.</li>
+            <li>Resolved edge cases: occlusion-induced identity drift, embedding mismatches under low light, multi-stream latency under load.</li>
+            <li>Built a Flask dashboard for live frame streaming, per-camera timestamps, and issue triage.</li>
+          </ul>
+          <p class="branch-stack">Python, RetinaFace, ArcFace, CSRT, GFPGAN, Flask, OpenCV</p>
+        </div>
+      </article>
+
+      <article class="branch">
+        <button class="branch-toggle" aria-expanded="false">
+          <span class="branch-title">JobShield — AI Agent for Job Posting Scam Detection</span>
+          <span class="branch-sub">AMD Developer Hackathon, ACT II (Unicorn Track)</span>
+        </button>
+        <div class="branch-body">
+          <ul>
+            <li>Multi-signal AI agent that verifies job postings against real-world signals — WHOIS lookups, live web search, typosquat detection, LinkedIn presence — to flag scams.</li>
+            <li>Designed a deterministic, code-level risk-scoring layer that can't be overridden by model judgment, so fraud decisions stay auditable.</li>
+            <li>Orchestrated deepseek-v4-flash (extraction) and deepseek-v4-pro (synthesis) in a full pipeline with a Streamlit UI and Docker deployment.</li>
+          </ul>
+          <p class="branch-stack">Python, LLM Orchestration, Streamlit, Docker</p>
+        </div>
+      </article>
+
+      <article class="branch">
+        <button class="branch-toggle" aria-expanded="false">
+          <span class="branch-title">mmcc — Multi-Model CLI Chat Application</span>
+          <span class="branch-sub">Personal tool</span>
+        </button>
+        <div class="branch-body">
+          <ul>
+            <li>Terminal-based chat app routing conversations across LLMs (Gemini 2.5 Pro, Kimi K2.5) via OpenRouter, with streaming, retry logic, and provider-fallback handling.</li>
+            <li>Evaluated response quality across providers — consistency, hallucination patterns, failure behavior under edge-case inputs — directly analogous to AI response QA.</li>
+            <li>Shipped on zero-budget infrastructure.</li>
+          </ul>
+          <p class="branch-stack">Python, OpenRouter, Gemini API, LLM Orchestration, Prompt Engineering</p>
+        </div>
+      </article>
+
+      <article class="branch">
+        <button class="branch-toggle" aria-expanded="false">
+          <span class="branch-title">Vehicle Counting — Traffic Management</span>
+          <span class="branch-sub">Computer vision</span>
+        </button>
+        <div class="branch-body">
+          <ul>
+            <li>YOLOv8 model to count vehicles in traffic lanes and adjust signal timings dynamically — 85–90% accuracy on live video stream input.</li>
+          </ul>
+          <p class="branch-stack">Python, YOLOv8, Machine Learning, Video Processing</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="dot"></span>signal</p>
+      <h2>Skills</h2>
+    </div>
+    <div class="signal-grid">
+      <div class="signal-group">
+        <h3>Generative AI &amp; LLMs</h3>
+        <div class="tags">
+          <span>RAG</span><span>LlamaIndex</span><span>LangChain</span><span>Hugging Face Transformers</span><span>LLM Orchestration</span><span>Prompt Engineering</span><span>NLP</span><span>Gemini API</span><span>Claude API</span>
+        </div>
+      </div>
+      <div class="signal-group">
+        <h3>ML &amp; Computer Vision</h3>
+        <div class="tags">
+          <span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>YOLOv8</span><span>RetinaFace</span><span>ArcFace</span><span>OpenCV</span><span>GFPGAN</span><span>Object Detection</span><span>Pattern Recognition</span>
+        </div>
+      </div>
+      <div class="signal-group">
+        <h3>Programming &amp; Databases</h3>
+        <div class="tags">
+          <span>Python</span><span>SQL</span><span>REST APIs</span><span>Vector Databases</span><span>FAISS</span><span>ChromaDB</span><span>Graph Databases</span>
+        </div>
+      </div>
+      <div class="signal-group">
+        <h3>Frameworks &amp; MLOps</h3>
+        <div class="tags">
+          <span>Flask</span><span>Streamlit</span><span>Docker</span><span>Git</span><span>Data Preprocessing</span><span>AI Output Validation</span><span>Hallucination Testing</span>
+        </div>
+      </div>
+      <div class="signal-group">
+        <h3>Core Competencies</h3>
+        <div class="tags">
+          <span>Deterministic AI Workflows</span><span>Explainable AI</span><span>Semantic &amp; Hierarchical Chunking</span><span>Algorithm Design</span><span>Edge Case Analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="certifications">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="dot"></span>rings</p>
+      <h2>Certifications</h2>
+    </div>
+    <div class="rings">
+      <div class="ring-entry">
+        <p class="ring-date">Aug 2026</p>
+        <div>
+          <p class="ring-title">IBM RAG and Agentic AI Professional Certificate V3</p>
+          <p class="ring-issuer">Coursera — 10-course specialization</p>
+          <p class="ring-detail">Advanced RAG with Vector Databases &amp; Retrievers · Agentic AI with LangChain/LangGraph · Agentic AI with LangGraph, CrewAI, AutoGen &amp; BeeAI · Build AI Agents Using MCP · Build Multimodal Generative AI Applications · Develop Generative AI Applications · Fundamentals of Building AI Agents · Generative AI Engineering with Transformers &amp; LLMs · Generative AI: Foundation Models and Platforms · Capstone Project</p>
+        </div>
+      </div>
+      <div class="ring-entry">
+        <p class="ring-date">—</p>
+        <div>
+          <p class="ring-title">Certified Data Science Associate Program</p>
+          <p class="ring-issuer">ICTRD Kaushalpith</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-contact" id="contact">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="dot"></span>reach</p>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="section-body reveal">
+      <p class="prose">Open to AI/ML and QA-adjacent roles. The fastest way to reach me is email.</p>
+      <div class="reach-links">
+        <a href="mailto:devy522003@gmail.com">devy522003@gmail.com</a>
+        <a href="https://linkedin.com/in/devvrat523" target="_blank" rel="noopener">linkedin.com/in/devvrat523</a>
+        <a href="https://github.com/devy52" target="_blank" rel="noopener">github.com/devy52</a>
+        <a href="resume.pdf">Download résumé</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>B.Tech, CSE (Artificial Intelligence &amp; Machine Learning) — VNR Vignana Jyothi Institute of Engineering &amp; Technology, Hyderabad</p>
+  <p>Devvrat Yadav</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
