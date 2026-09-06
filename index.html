@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Devvrat Yadav — AI/ML Engineer</title>
 <meta name="description" content="Devvrat Yadav — AI/ML Engineer building RAG pipelines, agentic systems, and computer vision applications.">
+<meta name="theme-color" content="#14110F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22%3E%3Crect width=%2220%22 height=%2220%22 rx=%223%22 fill=%22%2314110F%22/%3E%3Cpath d=%22M10 3 L10 12 M10 12 L5 17 M10 12 L15 17 M10 8.5 L6 6 M10 8.5 L14 6%22 stroke=%22%23C97C3D%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Devvrat Yadav — AI/ML Engineer">
+<meta property="og:description" content="RAG pipelines, agentic systems, and computer vision — built end to end, deterministic and auditable by design.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Devvrat Yadav — AI/ML Engineer">
+<meta name="twitter:description" content="RAG pipelines, agentic systems, and computer vision — built end to end, deterministic and auditable by design.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,6 +23,7 @@
 <body>
 
 <div class="grain" aria-hidden="true"></div>
+<div id="network-mount" aria-hidden="true"></div>
 
 <header class="site-header">
   <a href="#top" class="mark" aria-label="Devvrat Yadav, home">
@@ -66,135 +77,153 @@
       <a href="https://github.com/devy52" class="btn" target="_blank" rel="noopener">GitHub</a>
       <a href="https://linkedin.com/in/devvrat523" class="btn" target="_blank" rel="noopener">LinkedIn</a>
     </div>
+
+    <a href="#about" class="scroll-cue" aria-label="Scroll to about section">
+      <svg width="14" height="22" viewBox="0 0 14 22" aria-hidden="true">
+        <rect x="1" y="1" width="12" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <circle class="scroll-cue-dot" cx="7" cy="7" r="1.8" fill="currentColor"/>
+      </svg>
+    </a>
   </section>
 
   <section class="section" id="about">
-    <div class="section-head reveal">
+    <div class="section-head reveal slide-left">
       <p class="eyebrow"><span class="dot"></span>taproot</p>
       <h2>About</h2>
     </div>
-    <div class="section-body prose reveal">
+    <div class="section-body prose reveal slide-right">
       <p>I'm an AI/ML engineer (B.Tech, CSE — Artificial Intelligence &amp; Machine Learning) who learns by building. I take a concept — retrieval-augmented generation, agentic workflows, computer vision — and turn it into a working, end-to-end system rather than leaving it as theory.</p>
-      <p>Most of what I build is deliberately deterministic and auditable: fraud-detection logic that can't be overridden by model judgment, evaluation pipelines that catch hallucinations before they ship, vision systems that are tested against their actual failure modes instead of just their happy path.</p>
+      <p>I lean hard on AI tooling to move fast — across several models, not just one. I set the direction, review every iteration, and debug until it actually holds up under edge cases. The thinking is mine; a lot of the typing isn't, and I'm not precious about that distinction.</p>
+      <p>Most of what I build is deliberately deterministic and auditable: fraud-detection logic that can't be overridden by model judgment, evaluation pipelines that catch hallucinations before they ship, vision systems tested against their actual failure modes instead of just the happy path.</p>
       <p>Outside of applied projects, I'm doing independent research into a RAG approach I call <em>Root System</em> — chunk-level spreading activation as an alternative to flat similarity retrieval. Still validating whether there's a real technical delta over prior art like HippoRAG.</p>
     </div>
   </section>
 
   <section class="section" id="projects">
-    <div class="section-head reveal">
+    <div class="section-head reveal slide-left">
       <p class="eyebrow"><span class="dot"></span>branches</p>
       <h2>Projects</h2>
+      <p class="section-hint">drag, scroll, or use the arrows</p>
     </div>
 
-    <div class="branch-list reveal">
+    <div class="slider-wrap reveal slide-right">
+      <div class="slider" id="projectSlider">
 
-      <article class="branch">
-        <button class="branch-toggle" aria-expanded="false">
-          <span class="branch-title">MC-TFT — Multi-Camera Target Face Tracking System</span>
-          <span class="branch-sub">B.Tech Major Project</span>
-        </button>
-        <div class="branch-body">
+        <article class="slide featured">
+          <p class="slide-context">lablab.ai AI Factory Hackathon · Aug 2026 · live at pdos.nativelyai.app</p>
+          <h3>PDOS — Private Discovery Oracle System</h3>
+          <ul>
+            <li>Enterprise RAG system with three-tier, clearance-gated retrieval (All Staff / Management / Executive) and a human-in-the-loop approval workflow for sensitive document access.</li>
+            <li>Hybrid retrieval pipeline — pgvector HNSW + full-text search + reciprocal rank fusion, reranked with a Fireworks-hosted Qwen3 model.</li>
+            <li>Real PDF ingestion, revocable time-limited access grants, and role-based accounts provisioned by HR rather than self-service.</li>
+          </ul>
+          <p class="slide-stack">TypeScript · Postgres/pgvector · Fireworks AI · Supabase · native.builder</p>
+          <p class="slide-note">Architecture, retrieval strategy, and security model are mine — implementation was generated on native.builder's AI app-builder platform from my spec.</p>
+        </article>
+
+        <article class="slide">
+          <p class="slide-context">B.Tech Major Project</p>
+          <h3>MC-TFT — Multi-Camera Target Face Tracking</h3>
           <ul>
             <li>Real-time pipeline to detect, recognize, and track a target person across 4 simultaneous, non-overlapping CCTV streams using face embeddings and cosine similarity matching.</li>
-            <li>Compared three face-detection models — MTCNN, RetinaFace, YOLOv8-Face — on accuracy, latency, and robustness, and selected RetinaFace based on structured evaluation.</li>
+            <li>Compared three face-detection models — MTCNN, RetinaFace, YOLOv8-Face — and selected RetinaFace based on structured evaluation.</li>
             <li>Resolved edge cases: occlusion-induced identity drift, embedding mismatches under low light, multi-stream latency under load.</li>
-            <li>Built a Flask dashboard for live frame streaming, per-camera timestamps, and issue triage.</li>
           </ul>
-          <p class="branch-stack">Python, RetinaFace, ArcFace, CSRT, GFPGAN, Flask, OpenCV</p>
-        </div>
-      </article>
+          <p class="slide-stack">Python · RetinaFace · ArcFace · CSRT · GFPGAN · Flask · OpenCV</p>
+        </article>
 
-      <article class="branch">
-        <button class="branch-toggle" aria-expanded="false">
-          <span class="branch-title">JobShield — AI Agent for Job Posting Scam Detection</span>
-          <span class="branch-sub">AMD Developer Hackathon, ACT II (Unicorn Track)</span>
-        </button>
-        <div class="branch-body">
+        <article class="slide">
+          <p class="slide-context">AMD Developer Hackathon · ACT II (Unicorn Track)</p>
+          <h3>JobShield — AI Agent for Job Posting Scam Detection</h3>
           <ul>
-            <li>Multi-signal AI agent that verifies job postings against real-world signals — WHOIS lookups, live web search, typosquat detection, LinkedIn presence — to flag scams.</li>
-            <li>Designed a deterministic, code-level risk-scoring layer that can't be overridden by model judgment, so fraud decisions stay auditable.</li>
-            <li>Orchestrated deepseek-v4-flash (extraction) and deepseek-v4-pro (synthesis) in a full pipeline with a Streamlit UI and Docker deployment.</li>
+            <li>Multi-signal AI agent verifying job postings against real-world signals — WHOIS lookups, live web search, typosquat detection, LinkedIn presence — to flag scams.</li>
+            <li>Deterministic, code-level risk-scoring layer that can't be overridden by model judgment, so fraud decisions stay auditable.</li>
+            <li>Orchestrated deepseek-v4-flash (extraction) and deepseek-v4-pro (synthesis) with a Streamlit UI and Docker deployment.</li>
           </ul>
-          <p class="branch-stack">Python, LLM Orchestration, Streamlit, Docker</p>
-        </div>
-      </article>
+          <p class="slide-stack">Python · LLM Orchestration · Streamlit · Docker</p>
+        </article>
 
-      <article class="branch">
-        <button class="branch-toggle" aria-expanded="false">
-          <span class="branch-title">mmcc — Multi-Model CLI Chat Application</span>
-          <span class="branch-sub">Personal tool</span>
-        </button>
-        <div class="branch-body">
+        <article class="slide">
+          <p class="slide-context">Personal tool</p>
+          <h3>mmcc — Multi-Model CLI Chat Application</h3>
           <ul>
-            <li>Terminal-based chat app routing conversations across LLMs (Gemini 2.5 Pro, Kimi K2.5) via OpenRouter, with streaming, retry logic, and provider-fallback handling.</li>
+            <li>Terminal-based chat app routing across LLMs (Gemini 2.5 Pro, Kimi K2.5) via OpenRouter, with streaming, retry logic, and provider-fallback handling.</li>
             <li>Evaluated response quality across providers — consistency, hallucination patterns, failure behavior under edge-case inputs — directly analogous to AI response QA.</li>
-            <li>Shipped on zero-budget infrastructure.</li>
           </ul>
-          <p class="branch-stack">Python, OpenRouter, Gemini API, LLM Orchestration, Prompt Engineering</p>
-        </div>
-      </article>
+          <p class="slide-stack">Python · OpenRouter · Gemini API · LLM Orchestration · Prompt Engineering</p>
+        </article>
 
-      <article class="branch">
-        <button class="branch-toggle" aria-expanded="false">
-          <span class="branch-title">Vehicle Counting — Traffic Management</span>
-          <span class="branch-sub">Computer vision</span>
-        </button>
-        <div class="branch-body">
+        <article class="slide">
+          <p class="slide-context">Computer vision</p>
+          <h3>Vehicle Counting — Traffic Management</h3>
           <ul>
             <li>YOLOv8 model to count vehicles in traffic lanes and adjust signal timings dynamically — 85–90% accuracy on live video stream input.</li>
           </ul>
-          <p class="branch-stack">Python, YOLOv8, Machine Learning, Video Processing</p>
-        </div>
-      </article>
+          <p class="slide-stack">Python · YOLOv8 · Machine Learning · Video Processing</p>
+        </article>
 
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" id="sliderPrev" aria-label="Previous project">&#8249;</button>
+        <div class="slider-dots" id="sliderDots"></div>
+        <button class="slider-btn" id="sliderNext" aria-label="Next project">&#8250;</button>
+      </div>
     </div>
   </section>
 
   <section class="section" id="skills">
-    <div class="section-head reveal">
+    <div class="section-head reveal slide-left">
       <p class="eyebrow"><span class="dot"></span>signal</p>
       <h2>Skills</h2>
     </div>
-    <div class="signal-grid">
-      <div class="signal-group">
-        <h3>Generative AI &amp; LLMs</h3>
-        <div class="tags">
-          <span>RAG</span><span>LlamaIndex</span><span>LangChain</span><span>Hugging Face Transformers</span><span>LLM Orchestration</span><span>Prompt Engineering</span><span>NLP</span><span>Gemini API</span><span>Claude API</span>
+
+    <div class="signal-tier reveal slide-right">
+      <p class="tier-label">heartwood</p>
+      <div class="signal-grid">
+        <div class="signal-group">
+          <h3>Programming &amp; Databases</h3>
+          <div class="tags"><span>Python</span><span>SQL</span><span>REST APIs</span><span>Data Preprocessing</span></div>
+        </div>
+        <div class="signal-group">
+          <h3>ML &amp; Computer Vision</h3>
+          <div class="tags"><span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>YOLOv8</span><span>RetinaFace</span><span>ArcFace</span><span>OpenCV</span><span>GFPGAN</span><span>Object Detection</span><span>Pattern Recognition</span></div>
+        </div>
+        <div class="signal-group">
+          <h3>Applied LLM Work</h3>
+          <div class="tags"><span>LLM Orchestration</span><span>Prompt Engineering</span><span>Gemini API</span><span>Claude API</span><span>AI Output Validation</span><span>Hallucination Testing</span></div>
+        </div>
+        <div class="signal-group">
+          <h3>Frameworks &amp; Practice</h3>
+          <div class="tags"><span>Flask</span><span>Streamlit</span><span>Docker</span><span>Git</span><span>Deterministic AI Workflows</span><span>Edge Case Analysis</span><span>Algorithm Design</span></div>
         </div>
       </div>
-      <div class="signal-group">
-        <h3>ML &amp; Computer Vision</h3>
-        <div class="tags">
-          <span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>YOLOv8</span><span>RetinaFace</span><span>ArcFace</span><span>OpenCV</span><span>GFPGAN</span><span>Object Detection</span><span>Pattern Recognition</span>
+    </div>
+
+    <div class="signal-tier reveal slide-left">
+      <p class="tier-label">new growth</p>
+      <div class="signal-grid">
+        <div class="signal-group">
+          <h3>Retrieval &amp; RAG</h3>
+          <div class="tags"><span>RAG</span><span>LlamaIndex</span><span>LangChain</span><span>Vector Databases</span><span>FAISS</span><span>ChromaDB</span><span>Graph Databases</span><span>Semantic &amp; Hierarchical Chunking</span></div>
         </div>
-      </div>
-      <div class="signal-group">
-        <h3>Programming &amp; Databases</h3>
-        <div class="tags">
-          <span>Python</span><span>SQL</span><span>REST APIs</span><span>Vector Databases</span><span>FAISS</span><span>ChromaDB</span><span>Graph Databases</span>
+        <div class="signal-group">
+          <h3>Agentic Systems</h3>
+          <div class="tags"><span>LangGraph</span><span>CrewAI</span><span>AutoGen</span><span>MCP Agents</span><span>Hugging Face Transformers</span></div>
         </div>
-      </div>
-      <div class="signal-group">
-        <h3>Frameworks &amp; MLOps</h3>
-        <div class="tags">
-          <span>Flask</span><span>Streamlit</span><span>Docker</span><span>Git</span><span>Data Preprocessing</span><span>AI Output Validation</span><span>Hallucination Testing</span>
-        </div>
-      </div>
-      <div class="signal-group">
-        <h3>Core Competencies</h3>
-        <div class="tags">
-          <span>Deterministic AI Workflows</span><span>Explainable AI</span><span>Semantic &amp; Hierarchical Chunking</span><span>Algorithm Design</span><span>Edge Case Analysis</span>
+        <div class="signal-group">
+          <h3>Generative AI</h3>
+          <div class="tags"><span>Multimodal GenAI</span><span>NLP</span><span>Explainable AI</span></div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="certifications">
-    <div class="section-head reveal">
+    <div class="section-head reveal slide-left">
       <p class="eyebrow"><span class="dot"></span>rings</p>
       <h2>Certifications</h2>
     </div>
-    <div class="rings">
+    <div class="rings reveal slide-right">
       <div class="ring-entry">
         <p class="ring-date">Aug 2026</p>
         <div>
@@ -214,11 +243,11 @@
   </section>
 
   <section class="section section-contact" id="contact">
-    <div class="section-head reveal">
+    <div class="section-head reveal slide-left">
       <p class="eyebrow"><span class="dot"></span>reach</p>
       <h2>Get in touch</h2>
     </div>
-    <div class="section-body reveal">
+    <div class="section-body reveal slide-right">
       <p class="prose">Open to AI/ML and QA-adjacent roles. The fastest way to reach me is email.</p>
       <div class="reach-links">
         <a href="mailto:devy522003@gmail.com">devy522003@gmail.com</a>
@@ -236,6 +265,7 @@
   <p>Devvrat Yadav</p>
 </footer>
 
+<script type="module" src="network.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

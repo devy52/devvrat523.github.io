@@ -1,5 +1,5 @@
 // Devvrat Yadav — portfolio interactions
-// Scroll reveals, project expand/collapse, mobile nav. No frameworks.
+// Sliding project carousel, scroll reveals, nav. No frameworks.
 
 (function () {
   'use strict';
@@ -8,9 +8,7 @@
 
   /* ---------- scroll reveal ---------- */
 
-  var revealTargets = document.querySelectorAll(
-    '.reveal, .signal-group, .rings'
-  );
+  var revealTargets = document.querySelectorAll('.reveal, .signal-group, .rings');
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
     revealTargets.forEach(function (el) { el.classList.add('is-visible'); });
@@ -29,31 +27,54 @@
     revealTargets.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- project branch expand/collapse ---------- */
+  /* ---------- project slider ---------- */
 
-  document.querySelectorAll('.branch-toggle').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var branch = btn.closest('.branch');
-      var isOpen = branch.getAttribute('data-open') === 'true';
+  var slider = document.getElementById('projectSlider');
+  if (slider) {
+    var slides = Array.prototype.slice.call(slider.querySelectorAll('.slide'));
+    var dotsWrap = document.getElementById('sliderDots');
+    var prevBtn = document.getElementById('sliderPrev');
+    var nextBtn = document.getElementById('sliderNext');
+    var dots = [];
 
-      // close any other open branch for a tidier accordion feel
-      document.querySelectorAll('.branch[data-open="true"]').forEach(function (b) {
-        if (b !== branch) {
-          b.setAttribute('data-open', 'false');
-          b.querySelector('.branch-toggle').setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      branch.setAttribute('data-open', String(!isOpen));
-      btn.setAttribute('aria-expanded', String(!isOpen));
+    slides.forEach(function (slide, i) {
+      var dot = document.createElement('button');
+      dot.setAttribute('aria-label', 'Go to project ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
     });
-  });
 
-  // open the first project by default so the section doesn't look empty
-  var firstBranch = document.querySelector('.branch');
-  if (firstBranch) {
-    firstBranch.setAttribute('data-open', 'true');
-    firstBranch.querySelector('.branch-toggle').setAttribute('aria-expanded', 'true');
+    function setActive(index) {
+      slides.forEach(function (s, i) { s.classList.toggle('is-active', i === index); });
+      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === index); });
+    }
+
+    function goTo(index) {
+      index = Math.max(0, Math.min(slides.length - 1, index));
+      slides[index].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'start' });
+    }
+
+    var currentIndex = 0;
+    setActive(0);
+
+    if ('IntersectionObserver' in window) {
+      var slideSpy = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+              currentIndex = slides.indexOf(entry.target);
+              setActive(currentIndex);
+            }
+          });
+        },
+        { root: slider, threshold: [0.6] }
+      );
+      slides.forEach(function (s) { slideSpy.observe(s); });
+    }
+
+    prevBtn.addEventListener('click', function () { goTo(currentIndex - 1); });
+    nextBtn.addEventListener('click', function () { goTo(currentIndex + 1); });
   }
 
   /* ---------- mobile nav ---------- */
@@ -82,7 +103,7 @@
     var hero = document.querySelector('.hero');
     hero.addEventListener('mousemove', function (e) {
       var rect = hero.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;   // -0.5..0.5
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
       var y = (e.clientY - rect.top) / rect.height - 0.5;
       root.style.transform =
         'translateX(calc(-50% + ' + (x * -12) + 'px)) translateY(' + (y * -8) + 'px)';
@@ -90,6 +111,27 @@
     hero.addEventListener('mouseleave', function () {
       root.style.transform = 'translateX(-50%)';
     });
+  }
+
+  /* ---------- scroll-spy for nav active state ---------- */
+
+  var navLinks = document.querySelectorAll('.site-nav a');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main .section, .hero'));
+
+  if (navLinks.length && sections.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var id = entry.target.id;
+          navLinks.forEach(function (link) {
+            link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+          });
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+    sections.forEach(function (s) { if (s.id) spy.observe(s); });
   }
 
 })();
